@@ -1,14 +1,9 @@
-import MemberStore from './member'
-import UserStore from './user'
-import AppStore from './app/index'
+import AppStore from './app';
+import MemberStore from './member';
+import UserStore from './user';
 
-class RootStore {
-  constructor() {
-    this.memberStore = new MemberStore()
-    this.userStore = new UserStore()
-    this.appStore = new AppStore()
-  }
-}
+const appStore = new AppStore()
+const memberStore = new MemberStore()
+const userStore = new UserStore()
 
-export default new RootStore()
-export { MemberStore, UserStore, AppStore }
+export { appStore, memberStore, userStore }

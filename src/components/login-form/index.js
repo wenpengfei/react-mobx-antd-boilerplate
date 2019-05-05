@@ -1,15 +1,14 @@
 import * as React from 'react'
 import { observer, inject } from 'mobx-react'
 import { Form, Icon, Input, Button } from 'antd'
-import { UserStore } from '../../stores'
+import styles from './index.module.scss'
 
-const styles = require('./index.scss')
 const FormItem = Form.Item
 
 class Login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.form.validateFields(async(err, values) => {
+    this.props.form.validateFields(async (err, values) => {
       if (!err) {
         try {
           await this.props.userStore.login(values)
@@ -26,7 +25,7 @@ class Login extends React.Component {
     const { getFieldDecorator } = this.props.form
     return (
       <div className={styles['login-form-container']}>
-        <h2>登陆</h2>
+        <h2>管理登陆</h2>
         <Form onSubmit={this.handleSubmit}>
           <FormItem>
             {getFieldDecorator('userName', {
@@ -53,6 +52,4 @@ class Login extends React.Component {
   }
 }
 
-const WrappedLogin = Form.create()(Login)
-
-export default WrappedLogin
+export default Form.create()(Login)

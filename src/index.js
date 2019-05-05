@@ -6,10 +6,11 @@ import { Login } from './views'
 
 import 'antd/dist/antd.css'
 
-import store from './stores'
+import * as store from './stores'
 import Pages from './pages'
 
-const App = observer(class App extends React.Component {
+@observer
+class App extends React.Component {
   render() {
     return (
       <Router>
@@ -20,7 +21,7 @@ const App = observer(class App extends React.Component {
       </Router>
     )
   }
-})
+}
 
 ReactDOM.render(
   <Provider {...store}>

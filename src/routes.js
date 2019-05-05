@@ -1,5 +1,11 @@
 const routes = [
   {
+    path: '/dashboard',
+    name: 'dashboard',
+    icon: 'dashboard',
+    displayName: '控制台',
+  },
+  {
     path: '/member',
     name: 'member',
     icon: 'user',
